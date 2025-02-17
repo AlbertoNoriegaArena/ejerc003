@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import es.santander.ascender.ejerc003.model.Boligrafo;
 import es.santander.ascender.ejerc003.service.BoligrafoService;
 
-    @RestController
+@RestController
 @RequestMapping("/api/boligrafo")
 public class BoligrafoController {
 
@@ -47,5 +47,17 @@ public class BoligrafoController {
         boligrafoService.delete(id);
     }
 
-}
+    // Borrar todos los boligrafos
+    @DeleteMapping("/borrarTodos")
+    public String deleteAll() {
+        long numeroRegistros = boligrafoService.numeroDeRegistros();
+        boligrafoService.deleteAll();
+        return "Se han borrado un total de " + numeroRegistros + " registros";
+    }
 
+    @GetMapping("/count")
+    public String getNumeroDeRegistros() {
+        return "El número total de bolígrafos que tienes es: " + boligrafoService.numeroDeRegistros();
+    }
+
+}

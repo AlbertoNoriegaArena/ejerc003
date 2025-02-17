@@ -15,8 +15,7 @@ public class BoligrafoService {
     @Autowired
     private BoligrafoRepository repository;
 
-
-    //Crear registros
+    // Crear registros
     @PostConstruct
     public void init() {
         // Solo crear si no existen registros para evitar duplicados
@@ -70,4 +69,14 @@ public class BoligrafoService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    // Metodo para borrar todos los registros usando JPA
+    public void deleteAll() {
+        repository.deleteAll();
+    }
+
+    public long numeroDeRegistros() {
+        return repository.count();
+    }
+
 }
