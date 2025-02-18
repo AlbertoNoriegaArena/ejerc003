@@ -8,7 +8,6 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
-
 @Entity
 @Table(name = "Ordenador")
 public class Ordenador {
@@ -22,23 +21,23 @@ public class Ordenador {
     @Min(value = 0)
     private int numeroDeTeclas;
 
-    private boolean isIntel;
+    private boolean esIntel;
 
-    @Min(value=0)
-    @Max(value=200)
+    @Min(value = 0)
+    @Max(value = 200)
     private float peso;
 
-    public Ordenador(){
+    public Ordenador() {
 
     }
 
-    public Ordenador(Long id, int red, int green, int blue, int numeroDeTeclas, boolean isIntel, float peso) {
+    public Ordenador(Long id, int red, int green, int blue, int numeroDeTeclas, boolean esIntel, float peso) {
         this.id = id;
-        setColorFromRGB(red, green, blue); 
-        this.numeroDeTeclas= numeroDeTeclas;
-        this.isIntel = isIntel;
+        setColorFromRGB(red, green, blue);
+        this.numeroDeTeclas = numeroDeTeclas;
+        this.esIntel = esIntel;
         this.peso = peso;
-        
+
     }
 
     public Long getId() {
@@ -60,9 +59,11 @@ public class Ordenador {
         }
 
         /*
-         * red << 16 => desplaza el valor de red 16 posiciones a la izquierda para que ocupe los primeros 8 bits del número de 24 bits
+         * red << 16 => desplaza el valor de red 16 posiciones a la izquierda para que
+         * ocupe los primeros 8 bits del número de 24 bits
          * 
-         * green << 8 => desplaza el valor de green 8 posiciones a la izquierda para que ocupe los bits del medio
+         * green << 8 => desplaza el valor de green 8 posiciones a la izquierda para que
+         * ocupe los bits del medio
          * 
          * blue => el valor de blue no se desplaza porque ya ocupa los últimos 8 bits
          */
@@ -77,12 +78,12 @@ public class Ordenador {
         this.numeroDeTeclas = numeroDeTeclas;
     }
 
-    public boolean isIntel() {
-        return isIntel;
+    public boolean getEsIntel() {
+        return esIntel;
     }
 
-    public void setIntel(boolean isIntel) {
-        this.isIntel = isIntel;
+    public void setIntel(boolean esIntel) {
+        this.esIntel = esIntel;
     }
 
     public float getPeso() {
