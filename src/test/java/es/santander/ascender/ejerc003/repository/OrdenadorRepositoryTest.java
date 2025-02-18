@@ -22,17 +22,16 @@ public class OrdenadorRepositoryTest {
 
     private Ordenador ordenador;
 
-    
     @BeforeEach
     public void setUp() {
-        
+
         ordenador = new Ordenador(null, 255, 255, 255, 100, true, 23.65f);
     }
 
     // Test: Listar todos los ordenadores
     @Test
     public void testList() {
-        
+
         ordenadorRepository.save(ordenador);
 
         // Listamos todos los ordenadores
@@ -52,7 +51,7 @@ public class OrdenadorRepositoryTest {
 
     @Test
     public void testLeerUno() {
-        
+
         Ordenador ordenadorAGuardar = new Ordenador(1L, 255, 255, 255, 100, true, 23.65f);
         ordenadorRepository.save(ordenadorAGuardar);
 
