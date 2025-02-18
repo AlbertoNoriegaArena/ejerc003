@@ -15,14 +15,13 @@ public class OrdenadorService {
     @Autowired
     private OrdenadorRepository repository;
 
-
-    //Crear registros
+    // Crear registros
     @PostConstruct
     public void init() {
         // Solo crear si no existen registros para evitar duplicados
         if (repository.count() == 0) {
             Ordenador ordenador1 = new Ordenador(null, 255, 0, 120, 100, false, 20.15f);
-            Ordenador ordenador2 = new Ordenador(null, 0, 0, 255, 20, false, 1);
+            Ordenador ordenador2 = new Ordenador(null, 0, 0, 255, 20, true, 1);
             repository.save(ordenador1);
             repository.save(ordenador2);
         }

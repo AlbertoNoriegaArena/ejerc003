@@ -37,9 +37,13 @@ public class OrdenadorController {
         return ordenadorService.list();
     }
 
-    @PutMapping
-    public Ordenador update(@RequestBody Ordenador Ordenador) {
-        return ordenadorService.update(Ordenador);
+    @PutMapping("/{id}")
+    public Ordenador update(@PathVariable("id") Long id, @RequestBody Ordenador ordenador) {
+        if (id.equals(ordenador.getId())) {
+            return ordenadorService.update(ordenador);
+        } else {
+            throw new IllegalArgumentException("El ID en la URL no coincide con el ID del objeto.");
+        }
     }
 
     @DeleteMapping("/{id}")
@@ -48,4 +52,3 @@ public class OrdenadorController {
     }
 
 }
-

@@ -37,7 +37,7 @@ public class BoligrafoController {
         return boligrafoService.list();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public Boligrafo update(@RequestBody Boligrafo boligrafo) {
         return boligrafoService.update(boligrafo);
     }
